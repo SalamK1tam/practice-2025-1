@@ -7,6 +7,7 @@
 **Написание кода**
 ---
 Первый этап
+---
 С помощью команды 
 ``` python
 pip install pyTelegramBotAPI
