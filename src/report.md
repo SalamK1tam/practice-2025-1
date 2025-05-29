@@ -9,11 +9,11 @@
 Первый этап
 ---
 С помощью команды 
-'''python
+``` python
 pip install pyTelegramBotAPI
-''' 
+``` 
 я установила библиотеку для работы с Телеграм-ботами. После этого я прописала обязательные команды для работы бота:
-'''Python
+```Python
 import os
 from telebot import types
 import telebot
@@ -21,12 +21,12 @@ BOT_TOKEN ='#токен'
 bot = telebot.TeleBot(BOT_TOKEN)
 …
 bot.infinity_polling()
-'''
+```
 ---
 Второй этап
 ---
 После основной части я приступила к реализации функционала бота:
-'''python
+```python
 @bot.message_handler(commands=['start', 'menu'])
 def send_welcome(message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -34,17 +34,17 @@ def send_welcome(message):
     button2 = types.KeyboardButton("участники")
     button3 = types.KeyboardButton("фотографии")
     keyboard.add(button1, button2, button3)
-'''
+```
 Первое что я сделала - добавила клавиатуру с тремя кнопками, при нажатии которых бот будет отправлять соответствующие материалы. 
 Затем я прописала приветственное сообщение для бота:
-'''python
+```python
     bot.send_message(message.chat.id, "Привет! Я - Тг-бот по проекту 'Автоматизация внутренних бизнес-процессов университета. 2ГИС.' Здесь ты можешь узнать информацию о проекте, и тех, кто занимался его реализацией, а также увидеть результаты работы над проектом. Для этого нужно нажать соответствующие кнопки внизу. Чтобы вернуться к этому сообщению, напиши "r'/menu', reply_markup=keyboard)
-'''
+```
 ---
 Третий этап
 ---
 Последним этапом мне надо было прописать ответы бота после нажатия на кнопки, что я и сделала:
-'''python
+```python
 @bot.message_handler(func=lambda message: message.text in ["информация", "участники", "фотографии"])
 def handle_buttons(message):
     if message.text == "информация":
@@ -61,6 +61,6 @@ def handle_buttons(message):
         ]
         bot.send_media_group(message.chat.id, media)
 
-'''
+```
 **Заключение**
 В ходе работы я создала Телеграм-бота используя язык Python в соответствии с технологией, представленной в репозитории. Темой для вариативной части, так же, как и основной, стал проект "Автоматизация внутренних бизнес-процессов университета. 2ГИС.", который также является моей работой по проектной деятельности.
